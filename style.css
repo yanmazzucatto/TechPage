@@ -1,0 +1,133 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+        background-color: #0a0a0f;
+        color: white;
+        overflow-x: hidden;
+    }
+    
+    .neon-bg {
+        background: linear-gradient(135deg, rgba(10,10,15,1) 0%, rgba(32,10,48,1) 100%);
+        position: relative;
+    }
+    
+    .neon-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 50%, rgba(191,64,255,0.2) 0%, rgba(10,10,15,0) 70%),
+                    radial-gradient(circle at 70% 60%, rgba(255,64,191,0.2) 0%, rgba(10,10,15,0) 70%);
+        pointer-events: none;
+    }
+    
+    .floating-icon {
+        position: absolute;
+        opacity: 0.7;
+        filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+        animation: float 8s infinite ease-in-out;
+    }
+    
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0) rotate(0deg);
+        }
+        50% {
+            transform: translateY(-20px) rotate(5deg);
+        }
+    }
+    
+    .glow-effect {
+        filter: drop-shadow(0 0 10px rgba(191,64,255,0.5));
+    }
+    
+    .button-glow {
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .button-glow::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: linear-gradient(90deg, #bf40ff, #ff40bf, #bf40ff);
+        background-size: 200%;
+        border-radius: 16px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .button-glow:hover::before {
+        opacity: 1;
+        animation: animate-border 1.5s linear infinite;
+    }
+    
+    @keyframes animate-border {
+        0% {
+            background-position: 0%;
+        }
+        100% {
+            background-position: 200%;
+        }
+    }
+    
+    .button-glow:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(191, 64, 255, 0.4);
+    }
+    
+    .instagram-tag {
+        position: relative;
+        display: inline-block;
+    }
+    
+    .instagram-tag::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(90deg, #bf40ff, #ff40bf);
+        transition: width 0.3s ease;
+    }
+    
+    .instagram-tag:hover::after {
+        width: 100%;
+    }
+    
+    .hero-image {
+        position: relative;
+        animation: subtle-pulse 4s infinite ease-in-out;
+    }
+    
+    @keyframes subtle-pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.02);
+        }
+    }
+    
+    .tech-icon {
+        filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+        transition: all 0.5s ease;
+    }
+    
+    .tech-icon:hover {
+        transform: scale(1.2) rotate(10deg);
+        filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
+    }
