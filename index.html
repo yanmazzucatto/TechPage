@@ -5,23 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>André Rosa | Criador de Conteúdo De Milhas</title>
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    body {
-      background: radial-gradient(circle at center, #144b3a 0%, #062219 55%, #000000 100%);
-      color: white;
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden !important;
+      background: radial-gradient(circle at center, #09241b 0%, #062219 20%, #000000 100%);
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
+      color: white;
     }
 
-    @media (min-width: 1025px){
-        body{
-            overflow:hidden;
-        }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-
-    .icon-java { top: 20%; left: 10%; }
-    .icon-aws { bottom: 15%; right: 12%; }
-    .icon-spring { top: 35%; right: 8%; }
 
     .glow-effect::before {
       content: "";
@@ -37,46 +35,6 @@
       z-index: -1;
     }
 
-    .floating-icon {
-        position: absolute; 
-        animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    /* Container circular simples */
-    .circle-container {
-      position: relative;
-      width: 256px;
-      height: 256px;
-      border-radius: 50%;
-      border: 4px solid #10b981;
-      box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
-      overflow: hidden;
-      z-index: 10;
-    }
-
-    @media (min-width: 768px) {
-      .circle-container {
-        width: 320px;
-        height: 320px;
-      
-      }
-      #ordenador-topo{
-        order:-1;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .circle-container {
-        width: 384px;
-        height: 384px;
-      }
-    }
-
     .circle-image {
       width: 100%;
       height: 100%;
@@ -89,148 +47,99 @@
       transform: scale(1.05);
     }
 
-    /* Ajuste dos ícones flutuantes */
-    .hero-icons {
-      position: relative;
-      z-index: 20;
-    }
-
-    .floating-icon-java {
+    .floating-icon {
       position: absolute;
-      top: 15%;
-      left: -15%;
       animation: float 4s ease-in-out infinite;
       z-index: 25;
     }
 
-    .floating-icon-spring {
-      position: absolute;
-      top: 30%;
-      right: -15%;
-      animation: float 4s ease-in-out infinite 1s;
-      z-index: 25;
-    }
-
-    .floating-icon-aws {
-      position: absolute;
-      bottom: 10%;
-      right: -20%;
-      animation: float 4s ease-in-out infinite 2s;
-      z-index: 25;
-    }
+    .floating-icon-java { top: 15%; left: -15%; }
+    .floating-icon-spring { top: 30%; right: -15%; }
+    .floating-icon-aws { bottom: 10%; right: -20%; }
   </style>
 </head>
-<body>
 
-  <div class="relative inset-0 z-0">
-    <div class="absolute inset-0 bg-gradient-to-br from-green-700/20 via-emerald-500/30 to-green-900/30 blur-3xl scale-150"></div>
-  </div>
+<body class="min-h-screen flex items-center justify-center">
 
-  <div class="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center px-6">
-    
+  <!-- Fundo com brilho -->
+  <div class="absolute inset-0 bg-gradient-to-br from-green-930/20 via-emerald-200/30 to-green-900/30 blur-3xl  w-full h-full z-0"></div>
 
+  <!-- Container principal -->
+  <div class="relative z-10 w-full max-w-screen-xl px-6 py-12 flex flex-col md:flex-row items-center justify-center gap-12">
 
+    <!-- Coluna esquerda: Botões -->
+    <div class="w-full md:w-1/2 flex flex-col items-center md:items-end gap-6">
 
- <!-- Botões com design aprimorado e melhores práticas UX/UI -->
-<div class="w-full md:w-1/2 flex flex-col items-center md:items-end md:pr-10 mt-12 md:mt-0 space-y-6">
+      <!-- Botão Curso -->
+      <a href="https://www.superprof.com.br/aws-java-spring-springboot-angular-eclipse-intellij-cloud-computing-entrevistas-desenvolvimento-hands-aprenda-pratica.html" target="_blank"
+         class="w-80 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white py-4 px-6 rounded-2xl flex items-center gap-4 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 ring-1 ring-emerald-500/30 backdrop-blur-sm">
+        <div class="bg-emerald-500/20 p-3 rounded-xl text-emerald-200">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="font-bold text-lg text-emerald-100">Curso de Java e AWS</h3>
+          <p class="text-sm text-emerald-200">Torne-se grande no mercado.</p>
+        </div>
+      </a>
 
-  <!-- Botão Curso de Java e AWS -->
-  <a href="https://www.superprof.com.br/aws-java-spring-springboot-angular-eclipse-intellij-cloud-computing-entrevistas-desenvolvimento-hands-aprenda-pratica.html" target="_blank"
-     class="w-80 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white py-4 px-6 rounded-2xl flex items-center gap-4 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
-    
-    <!-- Ícone moderno: código -->
-    <div class="bg-emerald-500/20 p-3 rounded-xl text-emerald-200">
-      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
-      </svg>
+      <!-- Botão YouTube -->
+      <a href="https://www.youtube.com/@andretecnologia1870" target="_blank"
+         class="w-80 bg-gradient-to-r from-red-800 to-red-600 text-white py-4 px-6 rounded-xl flex items-center justify-between transition-transform hover:scale-105 hover:shadow-xl hover:shadow-red-400/40 ring-1 ring-red-500/30 backdrop-blur-sm">
+        <div class="flex items-center">
+          <div class="bg-gradient-to-br from-red-600 to-red-500 rounded-lg p-2 mr-4">
+            <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+              <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">Inscreva-se no YouTube</h3>
+            <p class="text-gray-200 text-sm">Conteúdo novo toda semana.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Botão LinkedIn -->
+      <a href="http://linkedin.com/in/andreluizrosa" target="_blank"
+         class="w-80 bg-gradient-to-r from-blue-800 to-cyan-600 text-white py-4 px-6 rounded-xl flex items-center justify-between transition-transform hover:scale-105 hover:shadow-xl hover:shadow-blue-400/40 ring-1 ring-blue-500/30 backdrop-blur-sm">
+        <div class="flex items-center">
+          <div class="bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg p-2 mr-4">
+            <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+              <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.96v12H.5V8zm7.5 0H13v1.84h.07c.7-1.33 2.4-2.3 4.43-2.3C21 7.54 22 10.02 22 13.61V20h-5v-5.33c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-5V8z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg">André Luiz Rosa</h3>
+            <p class="text-gray-200 text-sm">Acompanhe as novidades</p>
+          </div>
+        </div>
+      </a>
+
     </div>
-    
-    <div>
-      <h3 class="font-bold text-lg leading-tight text-emerald-100">Curso de Java e AWS</h3>
-      <p class="text-sm text-emerald-200">Torne-se grande no mercado.</p>
-    </div>
-  </a>
 
+    <!-- Coluna direita: Imagem com ícones -->
+    <div class="w-full order-first md:order-none md:w-1/2 flex flex-col items-center justify-center">
 
-
-
-  <!-- Botão Canal do YouTube -->
-  <a href="https://www.youtube.com/@andretecnologia1870" target="_blank"
-     class="button-glow w-80 bg-gradient-to-r from-red-800 to-red-600 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
-    <div class="flex items-center">
-      <div class="bg-gradient-to-br from-red-600 to-red-500 rounded-lg p-2 mr-4">
-        <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
-<path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"></path>
-        </svg>
-      </div>
-      <div>
-        <h3 class="font-bold text-lg">Inscreva-se no YouTube</h3>
-        <p class="text-gray-200 text-sm">Conteúdo novo toda semana.</p>
-      </div>
-    </div>
-  </a>
-
-
-
-
-  <!-- Botão linkedin -->
-  <a href="http://linkedin.com/in/andreluizrosa" target="_blank"
-     class="button-glow w-80 bg-gradient-to-r from-blue-800 to-cyan-600 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
-    <div class="flex items-center">
-      <div class="bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg p-2 mr-4">
-        <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
-          <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.96v12H.5V8zm7.5 0H13v1.84h.07c.7-1.33 2.4-2.3 4.43-2.3C21 7.54 22 10.02 22 13.61V20h-5v-5.33c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-5V8z"></path>
-        </svg>
-      </div>
-      <div>
-        <h3 class="font-bold text-lg">André Luiz Rosa</h3>
-        <p class="text-gray-200 text-sm">Acompanhe as novidades</p>
-      </div>
-    </div>
-  </a>
-</div>
-
-
-
-
-    <!-- Imagem + Título -->
-  <div id="ordenador-topo" class="order-first md:order-last w-full md:w-1/2 flex flex-col items-center justify-center mt-4 md:mt-0 space-y-4">
-
-      <div class="relative hero-icons glow-effect">
-        <!-- Container circular simples -->
-        <div class="circle-container">
-          <!-- Imagem dentro do círculo -->
-          <img src="img/Wcamisapreta2.0.png"
-               alt="Imagem do André"
-               class="circle-image"/>
+      <div class="relative glow-effect">
+        <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 border-4 border-emerald-500 shadow-emerald-500/50 shadow-lg rounded-full overflow-hidden relative">
+          <img src="img/Wcamisapreta2.0.png" alt="Imagem do André" class="circle-image" />
         </div>
 
-        <!-- Ícones flutuantes posicionados ao redor -->
-        <div class="floating-icon-java">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
-               alt="Java Logo" 
-               width="40" 
-               height="40" 
-               style="filter: brightness(0) invert(1);" />
+        <!-- Ícones flutuantes -->
+        <div class="floating-icon floating-icon-java">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="40" height="40" style="filter: brightness(0) invert(1);" />
         </div>
-
-        <div class="floating-icon-spring">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" 
-               alt="Spring Boot Logo" 
-               width="40" 
-               height="40" 
-               style="filter: brightness(0) invert(1);" />
+        <div class="floating-icon floating-icon-spring">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" width="40" height="40" style="filter: brightness(0) invert(1);" />
         </div>
-
-        <div class="floating-icon-aws">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
-               alt="AWS Logo" 
-               width="40" 
-               height="40" 
-               style="filter: brightness(0) invert(1);" />
+        <div class="floating-icon floating-icon-aws">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="40" height="40" style="filter: brightness(0) invert(1);" />
         </div>
       </div>
+
     </div>
+
   </div>
 </body>
 </html>
