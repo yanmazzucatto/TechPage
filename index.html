@@ -1,314 +1,235 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>André Rosa | Criador de Conteúdo De Milhas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>André Rosa | Criador de Conteúdo De Milhas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at center, #144b3a 0%, #062219 55%, #000000 100%);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    @media (min-width: 1025px){
+        body{
+            overflow:hidden;
         }
-        
-        body {
-            background-color: #0a0a0f;
-            color: white;
-            overflow-x: hidden;
-        }
-        
-        .neon-bg {
-            background: linear-gradient(135deg, rgba(10,10,15,1) 0%, rgba(32,10,48,1) 100%);
-            position: relative;
-        }
-        
-        .neon-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(191,64,255,0.2) 0%, rgba(10,10,15,0) 70%),
-                        radial-gradient(circle at 70% 60%, rgba(255,64,191,0.2) 0%, rgba(10,10,15,0) 70%);
-            pointer-events: none;
-        }
-        
-        .floating-icon {
-            position: absolute;
-            opacity: 0.7;
-            filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
-            animation: float 8s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-        
-        .glow-effect {
-            filter: drop-shadow(0 0 10px rgba(191,64,255,0.5));
-        }
-        
-        .button-glow {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .button-glow::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            z-index: -1;
-            background: linear-gradient(90deg, #bf40ff, #ff40bf, #bf40ff);
-            background-size: 200%;
-            border-radius: 16px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .button-glow:hover::before {
-            opacity: 1;
-            animation: animate-border 1.5s linear infinite;
-        }
-        
-        @keyframes animate-border {
-            0% {
-                background-position: 0%;
-            }
-            100% {
-                background-position: 200%;
-            }
-        }
-        
-        .button-glow:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(191, 64, 255, 0.4);
-        }
-        
-        .instagram-tag {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .instagram-tag::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background: linear-gradient(90deg, #bf40ff, #ff40bf);
-            transition: width 0.3s ease;
-        }
-        
-        .instagram-tag:hover::after {
-            width: 100%;
-        }
-        
-        .hero-image {
-            position: relative;
-            animation: subtle-pulse 4s infinite ease-in-out;
-        }
-        #img-adjustments{
-            margin-right: -10px;
-        }
-        
-        @keyframes subtle-pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
-        }
-        
-        .tech-icon {
-            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
-            transition: all 0.5s ease;
-        }
-        
-        .tech-icon:hover {
-            transform: scale(1.2) rotate(10deg);
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
-        }
-    </style>
+    }
+
+    .icon-java { top: 20%; left: 10%; }
+    .icon-aws { bottom: 15%; right: 12%; }
+    .icon-spring { top: 35%; right: 8%; }
+
+    .glow-effect::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,255,139,0.3), rgba(0,128,64,0.1));
+      filter: blur(50px);
+      z-index: -1;
+    }
+
+    .floating-icon {
+        position: absolute; 
+        animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Container circular simples */
+    .circle-container {
+      position: relative;
+      width: 256px;
+      height: 256px;
+      border-radius: 50%;
+      border: 4px solid #10b981;
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .circle-container {
+        width: 320px;
+        height: 320px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .circle-container {
+        width: 384px;
+        height: 384px;
+      }
+    }
+
+    .circle-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .circle-image:hover {
+      transform: scale(1.05);
+    }
+
+    /* Ajuste dos ícones flutuantes */
+    .hero-icons {
+      position: relative;
+      z-index: 20;
+    }
+
+    .floating-icon-java {
+      position: absolute;
+      top: 15%;
+      left: -15%;
+      animation: float 4s ease-in-out infinite;
+      z-index: 25;
+    }
+
+    .floating-icon-spring {
+      position: absolute;
+      top: 30%;
+      right: -15%;
+      animation: float 4s ease-in-out infinite 1s;
+      z-index: 25;
+    }
+
+    .floating-icon-aws {
+      position: absolute;
+      bottom: 10%;
+      right: -20%;
+      animation: float 4s ease-in-out infinite 2s;
+      z-index: 25;
+    }
+  </style>
 </head>
 <body>
-    <div class="neon-bg min-h-screen flex flex-col">
-        <div class="container mx-auto px-4 py-8 flex-grow flex flex-col md:flex-row items-center justify-center">
-            <!-- Left Side - Buttons -->
-            <div class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center z-10 order-2 md:order-1 mt-10 md:mt-0">
-                <div class="max-w-md w-full space-y-6">
-                    <!-- UX/UI Button -->
-                    <button class="button-glow w-full bg-gradient-to-r from-purple-900 to-purple-700 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300">
-                        <div class="flex items-center">
-                            <div class="bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg p-2 mr-4">
-                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
-                                    <path d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A9,9 0 0,0 21,12A9,9 0 0,0 12,3Z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Curso de Java</h3>
-                                <p class="text-gray-200 text-sm">Tome grandes posições do mercado.</p>
-                            </div>
-                        </div>
-                        <svg class="w-6 h-6 text-gray-300 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- InsiteWP Button -->
-                    <button class="button-glow w-full bg-gradient-to-r from-blue-900 to-indigo-800 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300">
-                        <div class="flex items-center">
-                            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg p-2 mr-4">
-                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
-                                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6.5A5.5,5.5 0 0,1 17.5,12A5.5,5.5 0 0,1 12,17.5A5.5,5.5 0 0,1 6.5,12A5.5,5.5 0 0,1 12,6.5M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Formação de Computação em Nuvem</h3>
-                                <p class="text-gray-200 text-sm">Aprenda tecnologias do futuro, aqui.</p>
-                            </div>
-                        </div>
-                        <svg class="w-6 h-6 text-gray-300 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- YouTube Button -->
-                    <button class="button-glow w-full bg-gradient-to-r from-red-900 to-red-700 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300">
-                        <div class="flex items-center">
-                            <div class="bg-gradient-to-br from-red-600 to-red-500 rounded-lg p-2 mr-4">
-                                <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
-                                    <path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">Inscreva-se no canal do YouTube</h3>
-                                <p class="text-gray-200 text-sm">Conteúdo exclusivo toda semana</p>
-                            </div>
-                        </div>
-                        <svg class="w-6 h-6 text-gray-300 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </button>
-                    
-                    <!-- Instagram Tag -->
-                    <div class="pt-6 text-center md:text-left">
-                        <a href="https://instagram.com/herickyalencar" target="_blank" class="instagram-tag text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 flex items-center justify-center md:justify-start">
-                            <svg class="w-6 h-6 mr-2" fill="url(#instagram-gradient)" viewBox="0 0 24 24">
-                                <defs>
-                                    <linearGradient id="instagram-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#bf40ff" />
-                                        <stop offset="50%" stop-color="#ff40bf" />
-                                        <stop offset="100%" stop-color="#ffaa40" />
-                                    </linearGradient>
-                                </defs>
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                            @andrerosa
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Right Side - Image -->
-            <div class="w-full md:w-1/2 flex justify-center items-center order-1 md:order-2 relative">
-                <div class="hero-image glow-effect">
-                    <!-- Person SVG Silhouette -->
-                    <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-                    <img src="img/camisapreta.png" alt="Imagem" class="w-full h-full object-cover rounded-full z-10 relative" id="img-adjustments">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-700 to-purple-400 opacity-50 rounded-full z-0"></div>
-                    </div>
 
-                    
-                    <!-- Glowing Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-xl"></div>
-                </div>
-                
-                <!-- Floating Tech Icons -->
-                <div class="floating-icon tech-icon absolute top-1/4 left-1/4" style="animation-delay: 0s;">
-                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#21759b">
-                        <path d="M12.158,12.786L9.46,20.625c0.806,0.237,1.657,0.366,2.54,0.366c1.047,0,2.051-0.181,2.986-0.51 c-0.024-0.038-0.046-0.079-0.065-0.124L12.158,12.786z M3.009,12c0,3.559,2.068,6.634,5.067,8.092L3.788,8.341 C3.289,9.459,3.009,10.696,3.009,12z M18.069,11.546c0-1.112-0.399-1.881-0.741-2.48c-0.456-0.741-0.883-1.368-0.883-2.109 c0-0.826,0.627-1.596,1.51-1.596c0.04,0,0.078,0.005,0.116,0.007C16.472,3.904,14.34,3.009,12,3.009 c-3.141,0-5.904,1.612-7.512,4.052c0.211,0.007,0.41,0.011,0.579,0.011c0.94,0,2.396-0.114,2.396-0.114 C7.947,6.93,8.004,7.642,7.52,7.699c0,0-0.487,0.057-1.029,0.085l3.274,9.739l1.968-5.901l-1.401-3.838 C9.848,7.756,9.389,7.699,9.389,7.699C8.904,7.67,8.961,6.93,9.446,6.958c0,0,1.484,0.114,2.368,0.114 c0.94,0,2.397-0.114,2.397-0.114c0.485-0.028,0.542,0.684,0.057,0.741c0,0-0.488,0.057-1.029,0.085l3.249,9.665l0.897-2.996 C17.841,13.284,18.069,12.316,18.069,11.546z M19.889,7.686c0.039,0.286,0.06,0.593,0.06,0.924c0,0.912-0.171,1.938-0.684,3.22 l-2.746,7.94c2.673-1.558,4.47-4.454,4.47-7.771C20.991,10.436,20.591,8.967,19.889,7.686z M12,22C6.486,22,2,17.514,2,12 C2,6.486,6.486,2,12,2c5.514,0,10,4.486,10,10C22,17.514,17.514,22,12,22z"></path>
-                    </svg>
-                </div>
-                <div class="floating-icon tech-icon absolute top-1/3 right-1/4" style="animation-delay: 1s;">
-                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#FF6A00">
-                        <path d="M2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12M7,17H9V10H7V17M11,17H13V7H11V17M15,17H17V13H15V17Z"></path>
-                    </svg>
-                </div>
-                <div class="floating-icon tech-icon absolute bottom-1/4 left-1/3" style="animation-delay: 2s;">
-                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#0ACF83">
-                        <path d="M15.5 6H9c-1.7 0-3 1.3-3 3s1.3 3 3 3h3v3c0 1.7 1.3 3 3 3s3-1.3 3-3v-9c0-1.7-1.3-3-3-3zm0 12c-.8 0-1.5-.7-1.5-1.5V15H15.5c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5zM9 10.5c-.8 0-1.5-.7-1.5-1.5S8.2 7.5 9 7.5h4.5v3H9zM15.5 7.5c.8 0 1.5.7 1.5 1.5v3h-3v-3h1.5z"></path>
-                    </svg>
-                </div>
-                <div class="floating-icon tech-icon absolute bottom-1/3 right-1/3" style="animation-delay: 3s;">
-                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#31A8FF">
-                        <path d="M6,3A3,3 0 0,1 9,6C9,7.31 8.17,8.42 7,8.83V15.17C8.17,15.58 9,16.69 9,18A3,3 0 0,1 6,21A3,3 0 0,1 3,18C3,16.69 3.83,15.58 5,15.17V8.83C3.83,8.42 3,7.31 3,6A3,3 0 0,1 6,3M6,5A1,1 0 0,0 5,6A1,1 0 0,0 6,7A1,1 0 0,0 7,6A1,1 0 0,0 6,5M6,17A1,1 0 0,0 5,18A1,1 0 0,0 6,19A1,1 0 0,0 7,18A1,1 0 0,0 6,17M21,18A3,3 0 0,1 18,21A3,3 0 0,1 15,18C15,16.69 15.83,15.58 17,15.17V7H15V10.25L10.75,6L15,1.75V5H17A2,2 0 0,1 19,7V15.17C20.17,15.58 21,16.69 21,18M18,17A1,1 0 0,0 17,18A1,1 0 0,0 18,19A1,1 0 0,0 19,18A1,1 0 0,0 18,17Z"></path>
-                    </svg>
-                </div>
-                <div class="floating-icon tech-icon absolute top-1/2 right-1/5" style="animation-delay: 4s;">
-                    <svg class="w-10 h-10" viewBox="0 0 24 24" fill="#10A37F">
-                        <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.5-2.6067-1.4997z"></path>
-                    </svg>
-                </div>
-            </div>
-        </div>
+  <div class="relative inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-green-700/20 via-emerald-500/30 to-green-900/30 blur-3xl scale-150"></div>
+  </div>
+
+  <div class="relative z-10 min-h-screen flex flex-col md:flex-row items-center justify-center px-6">
+    
+
+
+
+ <!-- Botões com design aprimorado e melhores práticas UX/UI -->
+<div class="w-full md:w-1/2 flex flex-col items-center md:items-end md:pr-10 mt-12 md:mt-0 space-y-6">
+
+  <!-- Botão Curso de Java e AWS -->
+  <a href="https://www.superprof.com.br/aws-java-spring-springboot-angular-eclipse-intellij-cloud-computing-entrevistas-desenvolvimento-hands-aprenda-pratica.html" target="_blank"
+     class="w-80 bg-gradient-to-br from-green-600 via-emerald-600 to-green-700 text-white py-5 px-6 rounded-2xl flex items-center gap-4 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
+    
+    <!-- Ícone moderno: código -->
+    <div class="bg-emerald-500/20 p-3 rounded-xl text-emerald-200">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+      </svg>
     </div>
     
-    <script>
-        // Adicionar efeito de movimento suave aos ícones flutuantes
-        document.addEventListener('mousemove', function(e) {
-            const icons = document.querySelectorAll('.tech-icon');
-            const moveX = (e.clientX - window.innerWidth / 2) / 50;
-            const moveY = (e.clientY - window.innerHeight / 2) / 50;
-            
-            icons.forEach((icon, index) => {
-                const factor = (index + 1) * 0.2;
-                icon.style.transform = `translate(${moveX * factor}px, ${moveY * factor}px)`;
-            });
-        });
-        
-        // Adicionar funcionalidade aos botões
-        document.querySelectorAll('button').forEach(button => {
-            button.addEventListener('click', function() {
-                // Efeito de clique
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 200);
-                
-                // Aqui você adicionaria a navegação real para os cursos/canal
-                const buttonText = this.querySelector('h3').textContent;
-                console.log(`Clicou em: ${buttonText}`);
-                
-                // Exemplo de redirecionamento (descomente e substitua as URLs)
-                /*
-                if (buttonText.includes('UX/UI')) {
-                    window.location.href = 'https://seusite.com/curso-uxui';
-                } else if (buttonText.includes('InsiteWP')) {
-                    window.location.href = 'https://seusite.com/insitewp';
-                } else if (buttonText.includes('YouTube')) {
-                    window.location.href = 'https://youtube.com/seucanalaqui';
-                }
-                */
-            });
-        });
-    </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95662903b1a24298',t:'MTc1MTA0MDA1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <div>
+      <h3 class="font-bold text-lg leading-tight text-emerald-100">Curso de Java e AWS</h3>
+      <p class="text-sm text-emerald-200">Torne-se grande no mercado.</p>
+    </div>
+  </a>
+
+
+
+
+  <!-- Botão Canal do YouTube -->
+  <a href="https://www.youtube.com/@andretecnologia1870" target="_blank"
+     class="button-glow w-80 bg-gradient-to-r from-red-800 to-red-600 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
+    <div class="flex items-center">
+      <div class="bg-gradient-to-br from-red-600 to-red-500 rounded-lg p-2 mr-4">
+        <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+<path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">Inscreva-se no YouTube</h3>
+        <p class="text-gray-200 text-sm">Conteúdo novo toda semana.</p>
+      </div>
+    </div>
+  </a>
+
+
+
+
+  <!-- Botão Instagram -->
+  <a href="https://instagram.com/aprendaviajarbarato" target="_blank"
+     class="button-glow w-80 bg-gradient-to-r from-blue-800 to-cyan-600 text-white py-4 px-6 rounded-xl flex items-center justify-between group transition-all duration-300 transition-transform hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/40 group ring-1 ring-emerald-500/30 backdrop-blur-sm">
+    <div class="flex items-center">
+      <div class="bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg p-2 mr-4">
+        <svg class="w-8 h-8" fill="white" viewBox="0 0 24 24">
+          <path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.5 8h4.96v12H.5V8zm7.5 0H13v1.84h.07c.7-1.33 2.4-2.3 4.43-2.3C21 7.54 22 10.02 22 13.61V20h-5v-5.33c0-1.27-.03-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V20h-5V8z"></path>
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-bold text-lg">André Luiz Rosa</h3>
+        <p class="text-gray-200 text-sm">Acompanhe as novidades</p>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+
+    <!-- Imagem + Título -->
+    <div class="w-full md:w-1/2 flex flex-col items-center justify-center mt-12 md:mt-0 space-y-4">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-green-100 drop-shadow-xl">André Rosa</h1>
+      </div>
+
+      <div class="relative hero-icons glow-effect">
+        <!-- Container circular simples -->
+        <div class="circle-container">
+          <!-- Imagem dentro do círculo -->
+          <img src="img/Wcamisapreta2.0.png"
+               alt="Imagem do André"
+               class="circle-image"/>
+        </div>
+
+        <!-- Ícones flutuantes posicionados ao redor -->
+        <div class="floating-icon-java">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
+               alt="Java Logo" 
+               width="40" 
+               height="40" 
+               style="filter: brightness(0) invert(1);" />
+        </div>
+
+        <div class="floating-icon-spring">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" 
+               alt="Spring Boot Logo" 
+               width="40" 
+               height="40" 
+               style="filter: brightness(0) invert(1);" />
+        </div>
+
+        <div class="floating-icon-aws">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" 
+               alt="AWS Logo" 
+               width="40" 
+               height="40" 
+               style="filter: brightness(0) invert(1);" />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>

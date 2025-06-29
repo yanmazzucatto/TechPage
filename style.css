@@ -1,0 +1,187 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #0a2f25 0%, #000000 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ========== ESTRUTURA DO LAYOUT ========== */
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.left-section,
+.right-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.left-section {
+  justify-content: flex-end;
+  padding-right: 5%;
+}
+
+.right-section {
+  justify-content: flex-start;
+  padding-left: 5%;
+}
+
+/* ========== PROFILE SECTION ========== */
+
+.profile-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-glow {
+  position: absolute;
+  background: radial-gradient(circle, #ffd42840 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(40px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+}
+
+.profile-image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 212, 40, 0.5);
+  box-shadow: 0 0 30px rgba(0, 186, 195, 0.5);
+}
+
+/* ========== BOTÕES E ÍCONES ========== */
+
+.btn-primary {
+  display: none;
+  background: linear-gradient(135deg, #ffd428 0%, #b3a180 100%);
+  color: #001a33;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 14px 32px;
+  box-shadow: 0 0 15px rgba(255, 212, 40, 0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* ========== CARDS ========== */
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background: rgba(0, 26, 51, 0.7);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(179, 161, 128, 0.2);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 186, 195, 0.3);
+  border: 1px solid rgba(179, 161, 128, 0.5);
+}
+
+.feature-icon {
+  background: linear-gradient(135deg, rgba(0, 186, 195, 0.2) 0%, rgba(255, 212, 40, 0.2) 100%);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* ========== RESPONSIVIDADE ========== */
+
+/* Tablets e abaixo */
+@media (max-width: 1024px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    padding: 2rem;
+    justify-content: center;
+  }
+
+  .feature-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-image {
+    max-width: 280px;
+  }
+
+  .profile-glow {
+    width: 340px;
+    height: 340px;
+  }
+}
+
+/* Celulares médios */
+@media (max-width: 768px) {
+  .feature-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-image {
+    max-width: 240px;
+  }
+
+  .profile-glow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 640px) {
+  .profile-image {
+    max-width: 200px;
+  }
+
+  .profile-glow {
+    width: 260px;
+    height: 260px;
+  }
+}
+/*
+ 
