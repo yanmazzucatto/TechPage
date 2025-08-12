@@ -10,11 +10,13 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y:visible !important;
       background: radial-gradient(circle at center, #09241b 0%, #062219 20%, #000000 100%);
       font-family: 'Poppins', sans-serif;
       color: white;
     }
+    
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
@@ -56,6 +58,66 @@
     .floating-icon-java { top: 15%; left: -15%; }
     .floating-icon-spring { top: 30%; right: -15%; }
     .floating-icon-aws { bottom: 10%; right: -20%; }
+    
+    
+    .video-card {
+    background-image: url("img/Thumbnail.png");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 26, 51, 0.7);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(179, 161, 128, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;  /* importante para organizar título e descrição */
+    justify-content: flex-start;
+    cursor: pointer;
+
+    /* Definir altura fixa e esconder overflow no desktop */
+    min-height: 60%;  /* aumenta para espaço confortável */
+    height: 20vh;
+    min-width: 20rem;
+    overflow: hidden;
+    padding: 16px 20px; /* espaço interno para texto */
+    box-sizing: border-box;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 186, 195, 0.3);
+    border: 1px solid rgba(179, 161, 128, 0.5);
+}
+
+/* Pseudo elemento decorativo */
+.video-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0,186,195,0.1) 0%, transparent 70%);
+    transform: rotate(45deg);
+    z-index: 0;
+}
+
+/* Overlay escurecido */
+.video-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
   </style>
 </head>
 
@@ -79,8 +141,8 @@
           </svg>
         </div>
         <div>
-          <h3 class="font-bold text-lg text-emerald-100">Curso de Java e AWS</h3>
-          <p class="text-sm text-emerald-200">Torne-se grande no mercado.</p>
+          <h3 class="font-bold text-lg text-emerald-100">Aulas de Java e AWS</h3>
+          <p class="text-sm text-emerald-200">Torne-se grande no mercado</p>
         </div>
       </a>
 
@@ -95,7 +157,7 @@
           </div>
           <div>
             <h3 class="font-bold text-lg">Inscreva-se no YouTube</h3>
-            <p class="text-gray-200 text-sm">Conteúdo novo toda semana.</p>
+            <p class="text-gray-200 text-sm">Seja um arquiteto de soluções</p>
           </div>
         </div>
       </a>
@@ -111,7 +173,7 @@
           </div>
           <div>
             <h3 class="font-bold text-lg">André Luiz Rosa</h3>
-            <p class="text-gray-200 text-sm">Acompanhe as novidades</p>
+            <p class="text-gray-200 text-sm">Posts e notícias sobre GenIA</p>
           </div>
         </div>
       </a>
@@ -126,8 +188,8 @@
       </svg>
     </div>
     <div>
-      <h3 class="font-bold text-lg">Perfil AWS Community</h3>
-      <p class="text-gray-200 text-sm">André - AWS Community Builder</p>
+      <h3 class="font-bold text-lg">Community Builder</h3>
+      <p class="text-gray-200 text-sm">Artigos sobre DevTools na AWS</p>
     </div>
   </div>
 </a>
@@ -144,11 +206,19 @@
           </div>
           <div>
             <h3 class="font-bold text-lg">Visite Meu Blog</h3>
-            <p class="text-gray-200 text-sm">Atualizações do Mundo Tech</p>
+            <p class="text-gray-200 text-sm">DevOps e Kubernetes</p>
           </div>
         </div>
       </a>
 
+                      <div class="feature-card video-card" onclick="window.open('https://youtu.be/RL9VZFrzigc', '_blank', 'noopener,noreferrer')">
+                <div class="video-overlay">
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> 
+                    <path d="M10 8L16 12L10 16Z" fill="white" stroke="white" />
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                </div>
+            </div>  
 
     </div>
 
